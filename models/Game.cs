@@ -9,8 +9,8 @@ namespace Game.Models
     public static List<string> Deck { get; set; }
     public static List<string> DealerHand { get; set; }
     public static List<string> PlayerHand { get; set; }
-    public int PlayerScore { get; set; }
-    public int DealerScore { get; set; }
+    public static int PlayerScore { get; set; }
+    public static int DealerScore { get; set; }
 
     public int PlayerMoney { get; set; }
     public int Pot { get; set; }
