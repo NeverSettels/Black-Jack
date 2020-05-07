@@ -33,6 +33,7 @@ namespace Game
         Poker.DealerScore = Poker.ClacScore(Poker.DealerHand);
         Poker.DevShowDeck(Poker.PlayerHand);
         Console.WriteLine($"Player: {Poker.PlayerScore}, Dealer: {Poker.DealerScore}");
+        Console.WriteLine($"Winner: {Poker.CompareScore(Poker.PlayerScore, Poker.DealerScore)}");
       }
     }
   }
