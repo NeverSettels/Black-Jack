@@ -13,14 +13,29 @@ namespace Game
       if (hitOrHold == "hold")
       {
         Console.WriteLine($"Winner: {Poker.CompareScore(Poker.PlayerScore, Poker.DealerScore)}");
+        Main();
       }
       else
       {
         Poker.PlayerHand.Add(Poker.Hit());
         Poker.DevShowDeck(Poker.PlayerHand);
         Poker.PlayerScore = Poker.ClacScore(Poker.PlayerHand);
-        Console.WriteLine($"Your hand Gives you: {Poker.PlayerScore} Points would you like to hit? or hold");
-        HoldHit();
+        string state = Poker.CheckState(Poker.PlayerScore);
+        if (state == "Black Jack")
+        {
+          Console.WriteLine($"{state}! You win!");
+          Main();
+        }
+        else if (state == "Bust")
+        {
+          Console.WriteLine($"Your hand Gives you: {Poker.PlayerScore}! You Busted!");
+          Main();
+        }
+        else
+        {
+          Console.WriteLine($"Your hand Gives you: {Poker.PlayerScore} Points would you like to hit? or hold");
+          HoldHit();
+        }
       }
     }
     public static void Main()
@@ -37,7 +52,7 @@ namespace Game
       // Poker.ClacScore(Poker.PlayerHand);
       // Console.WriteLine();
       // //Poker.DevShowDeck(Poker.Deck);
-      Console.Write("Hello want to play a hand of black jack? y/n :");
+      Console.Write("Would you like to play a hand of Black Jack? y/n :");
       string yOrN = Console.ReadLine().ToLower();
       if (yOrN == "n")
       {
