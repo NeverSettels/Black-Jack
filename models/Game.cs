@@ -109,6 +109,15 @@ namespace Game.Models
       Console.WriteLine(score);
       return score;
     }
+    public static bool CheckState(int score)
+    {
+      bool gameOver = false;
+      if (score >= 21)
+      {
+        gameOver = true;
+      }
+      return gameOver;
+    }
     public static void DevShowDeck(List<string> toShow)
     {
       foreach (string card in toShow)
