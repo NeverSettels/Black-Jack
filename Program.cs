@@ -6,8 +6,27 @@ namespace Game
 {
   public class Program
   {
+    public static void HoldHit()
+    {
+      Console.WriteLine($"Your hand Gives you: {Poker.PlayerScore} Points would you like to hit? or hold");
+      string hitOrHold = Console.ReadLine().ToLower();
+      if (hitOrHold == "hold")
+      {
+        Console.WriteLine($"Winner: {Poker.CompareScore(Poker.PlayerScore, Poker.DealerScore)}");
+      }
+      else
+      {
+        Poker.PlayerHand.Add(Poker.Hit());
+        Poker.DevShowDeck(Poker.PlayerHand);
+        Poker.PlayerScore = Poker.ClacScore(Poker.PlayerHand);
+        Console.WriteLine($"Your hand Gives you: {Poker.PlayerScore} Points would you like to hit? or hold");
+        HoldHit();
+      }
+    }
     public static void Main()
     {
+
+
       // Poker.PupulateDeck();
       // Poker game = new Poker();
       // Poker.PlayerHand = Poker.DealInitialHand();
@@ -32,8 +51,9 @@ namespace Game
         Poker.PlayerScore = Poker.ClacScore(Poker.PlayerHand);
         Poker.DealerScore = Poker.ClacScore(Poker.DealerHand);
         Poker.DevShowDeck(Poker.PlayerHand);
-        Console.WriteLine($"Player: {Poker.PlayerScore}, Dealer: {Poker.DealerScore}");
-        Console.WriteLine($"Winner: {Poker.CompareScore(Poker.PlayerScore, Poker.DealerScore)}");
+        HoldHit();
+
+
       }
     }
   }
