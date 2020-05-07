@@ -6,6 +6,13 @@ namespace Game.Models
   public class Poker
   {
     public static List<string> Deck { get; set; }
+    public List<string> DealerHand { get; set; }
+    public List<string> PlayerHand { get; set; }
+    public int PlayerScore { get; set; }
+    public int DealerScore { get; set; }
+
+    public int PlayerMoney { get; set; }
+    public int Pot { get; set; }
 
     public static void PupulateDeck()
     {
@@ -63,11 +70,26 @@ namespace Game.Models
     public static string Hit()
     {
       Random r = new Random();
-      int rInt = r.Next(0, 52);
+      int rInt = r.Next(0, Poker.Deck.Count);
       string card = Deck[rInt];
       Console.WriteLine(card);
       Poker.Deck.Remove(card);
       return card;
+    }
+    public List<string> DealInitialHand()
+    {
+
+      string Card1 = Poker.Hit();
+      string Card2 = Poker.Hit();
+      List<string> hand = new List<string> { Card1, card2 };
+      return hand
+    }
+    public static void DevShowDeck(List<string> toShow)
+    {
+      foreach (string card in toShow)
+      {
+        Console.WriteLine(card);
+      }
     }
   }
 }
