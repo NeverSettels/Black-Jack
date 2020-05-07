@@ -118,6 +118,24 @@ namespace Game.Models
       }
       return gameOver;
     }
+
+    public static string CompareScore(int playerScore, int dealerScore)
+    {
+      string winner = "";
+      if (playerScore > dealerScore)
+      {
+        winner = "Player";
+      }
+      else if (playerScore == dealerScore)
+      {
+        winner = "Tie";
+      }
+      else
+      {
+        winner = "Dealer";
+      }
+      return winner;
+    }
     public static void DevShowDeck(List<string> toShow)
     {
       foreach (string card in toShow)
