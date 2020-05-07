@@ -8,10 +8,15 @@ namespace Game
   {
     public static void Main()
     {
-      Poker game = new Poker();
       Poker.PupulateDeck();
-      Poker.Hit();
-      Poker.DevShowDeck();
+      Poker game = new Poker();
+      Poker.PlayerHand = Poker.DealInitialHand();
+      Poker.DealerHand = Poker.DealInitialHand();
+      //Poker.Hit();
+      Poker.DevShowDeck(Poker.PlayerHand);
+      Poker.DevShowDeck(Poker.DealerHand);
+      Console.WriteLine();
+      Poker.DevShowDeck(Poker.Deck);
     }
   }
 }

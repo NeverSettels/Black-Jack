@@ -6,8 +6,8 @@ namespace Game.Models
   public class Poker
   {
     public static List<string> Deck { get; set; }
-    public List<string> DealerHand { get; set; }
-    public List<string> PlayerHand { get; set; }
+    public static List<string> DealerHand { get; set; }
+    public static List<string> PlayerHand { get; set; }
     public int PlayerScore { get; set; }
     public int DealerScore { get; set; }
 
@@ -72,17 +72,17 @@ namespace Game.Models
       Random r = new Random();
       int rInt = r.Next(0, Poker.Deck.Count);
       string card = Deck[rInt];
-      Console.WriteLine(card);
+      //Console.WriteLine(card);
       Poker.Deck.Remove(card);
       return card;
     }
-    public List<string> DealInitialHand()
+    public static List<string> DealInitialHand()
     {
 
       string Card1 = Poker.Hit();
       string Card2 = Poker.Hit();
-      List<string> hand = new List<string> { Card1, card2 };
-      return hand
+      List<string> hand = new List<string> { Card1, Card2 };
+      return hand;
     }
     public static void DevShowDeck(List<string> toShow)
     {
