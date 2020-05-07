@@ -109,14 +109,23 @@ namespace Game.Models
       Console.WriteLine(score);
       return score;
     }
-    public static bool CheckState(int score)
+    public static string CheckState(int score)
     {
-      bool gameOver = false;
-      if (score >= 21)
+      string state = "";
+
+      if (score > 21)
       {
-        gameOver = true;
+        state = "Bust";
       }
-      return gameOver;
+      else if (score == 21)
+      {
+        state = "Black Jack";
+      }
+      else
+      {
+        state = "Keep Playing";
+      }
+      return state;
     }
 
     public static string CompareScore(int playerScore, int dealerScore)
