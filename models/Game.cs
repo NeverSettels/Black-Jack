@@ -5,10 +5,11 @@ namespace Game.Models
 {
   public class Poker
   {
-    public static List<string> Deck { get; }
+    public static List<string> Deck { get; set; }
 
     public static void PupulateDeck()
     {
+      List<string> temp = new List<string> { };
       string Suit = "";
       string Card = "";
       for (int i = 0; i < 4; i++)
@@ -53,11 +54,20 @@ namespace Game.Models
               Card = j.ToString();
               break;
           }
-
-          Console.WriteLine($"{Card} of {Suit}");
-
+          temp.Add($"{Card} of {Suit}");
+          Poker.Deck = temp;
         }
       }
+    }
+    //hit
+    public static string Hit()
+    {
+      Random r = new Random();
+      int rInt = r.Next(0, 52);
+      string card = Deck[rInt];
+      Console.WriteLine(card);
+      Poker.Deck.Remove(card);
+      return card;
     }
   }
 }

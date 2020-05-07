@@ -8,7 +8,9 @@ namespace Prime
   {
     public static void Main()
     {
+      //Poker game = new Poker();
       Poker.PupulateDeck();
+      Poker.Hit();
     }
   }
 }
