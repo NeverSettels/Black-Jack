@@ -8,7 +8,7 @@ namespace Prime
   {
     public static void Main()
     {
-      Console.WriteLine("Hello world");
+      Poker.PupulateDeck();
     }
   }
 }
