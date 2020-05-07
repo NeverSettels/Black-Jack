@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Game.Models
 {
@@ -83,6 +84,30 @@ namespace Game.Models
       string Card2 = Poker.Hit();
       List<string> hand = new List<string> { Card1, Card2 };
       return hand;
+    }
+
+    public static int ClacScore(List<string> hand)
+    {
+      int score = 0;
+      foreach (string card in hand)
+      {
+        List<string> WordList = card.Split(' ').ToList();
+        string cardValue = WordList[0];
+        if (cardValue == "Jack" || cardValue == "Queen" || cardValue == "King")
+        {
+          score += 10;
+        }
+        else if (cardValue == "Ace")
+        {
+          score += 11;
+        }
+        else
+        {
+          score += int.Parse(cardValue);
+        }
+      }
+      Console.WriteLine(score);
+      return score;
     }
     public static void DevShowDeck(List<string> toShow)
     {

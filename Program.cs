@@ -14,9 +14,10 @@ namespace Game
       Poker.DealerHand = Poker.DealInitialHand();
       //Poker.Hit();
       Poker.DevShowDeck(Poker.PlayerHand);
-      Poker.DevShowDeck(Poker.DealerHand);
+      //Poker.DevShowDeck(Poker.DealerHand);
+      Poker.ClacScore(Poker.PlayerHand);
       Console.WriteLine();
-      Poker.DevShowDeck(Poker.Deck);
+      //Poker.DevShowDeck(Poker.Deck);
     }
   }
 }
